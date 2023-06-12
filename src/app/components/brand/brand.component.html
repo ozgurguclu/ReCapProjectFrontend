@@ -7,11 +7,16 @@
 </div>
 <table class="table">
   <thead>
-    <tr routerLink="/cars" class="table-dark">
-      <th>Brands</th>
+    <tr class="table-dark">
+      <th routerLink="cars/" (click)="resetCurrentBrand()">Brands</th>
     </tr>
   </thead>
-  <tr *ngFor="let brand of brands">
+  <tr
+    *ngFor="let brand of brands"
+    (click)="setCurrentBrand(brand)"
+    routerLink="cars/brand/{{ brand.id }}"
+    [class]="getCurrentBrandClass(brand)"
+  >
     <td>{{ brand.name }}</td>
   </tr>
 </table>

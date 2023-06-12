@@ -18,10 +18,10 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
     BrandComponent,
     ColorComponent,
     CarComponent,
+    CarDetailComponent,
     CustomerComponent,
     RentalComponent,
-    NaviComponent,
-    CarDetailComponent
+    NaviComponent
   ],
   imports: [
     BrowserModule,

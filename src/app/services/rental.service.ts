@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataResponseModel } from '../models/dataResponseModel';
+import { ListResponseModel } from '../models/listResponseModel';
 import { Rental } from '../models/rental';
 import { RentalDetail } from '../models/rentalDetail';
 
@@ -14,23 +14,23 @@ export class RentalService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getRentals():Observable<DataResponseModel<Rental>> {
+  getRentals():Observable<ListResponseModel<Rental>> {
     let newUrl = this.apiUrl + '/getall';
-    return this.httpClient.get<DataResponseModel<Rental>>(newUrl);
+    return this.httpClient.get<ListResponseModel<Rental>>(newUrl);
   }
 
-  getRentalDetails():Observable<DataResponseModel<RentalDetail>> {
+  getRentalDetails():Observable<ListResponseModel<RentalDetail>> {
     let newUrl = this.apiUrl + '/getrentaldetails';
-    return this.httpClient.get<DataResponseModel<RentalDetail>>(newUrl);
+    return this.httpClient.get<ListResponseModel<RentalDetail>>(newUrl);
   }
 
-  getRentalDetailsByCarId():Observable<DataResponseModel<RentalDetail>> {
+  getRentalDetailsByCarId():Observable<ListResponseModel<RentalDetail>> {
     let newUrl = this.apiUrl + '/getrentaldetailsbycarid?carId=';
-    return this.httpClient.get<DataResponseModel<RentalDetail>>(newUrl);
+    return this.httpClient.get<ListResponseModel<RentalDetail>>(newUrl);
   }
 
-  getRentalDetailsCustomerId():Observable<DataResponseModel<RentalDetail>> {
+  getRentalDetailsCustomerId():Observable<ListResponseModel<RentalDetail>> {
     let newUrl = this.apiUrl + '/getrentaldetailscustomerid?customerId=';
-    return this.httpClient.get<DataResponseModel<RentalDetail>>(newUrl);
+    return this.httpClient.get<ListResponseModel<RentalDetail>>(newUrl);
   }
 }

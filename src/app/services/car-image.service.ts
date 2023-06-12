@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataResponseModel } from '../models/dataResponseModel';
+import { ListResponseModel } from '../models/listResponseModel';
 import { CarImage } from '../models/carImage';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -12,8 +12,13 @@ export class CarImageService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getImagesByCarId(carId: number): Observable<DataResponseModel<CarImage>> {
-    let newUrl = this.apiUrl + '/getimagesbycarid?carId=' + carId;
-    return this.httpClient.get<DataResponseModel<CarImage>>(newUrl);
+  getAllCarImages():Observable<ListResponseModel<CarImage>>{
+    let newPath = this.apiUrl + '/getall';
+    return this.httpClient.get<ListResponseModel<CarImage>>(newPath);
+  }
+
+  getImagesByCarId(carId: number): Observable<ListResponseModel<CarImage>> {
+    let newPath = this.apiUrl + '/getimagesbycarid?carId=' + carId;
+    return this.httpClient.get<ListResponseModel<CarImage>>(newPath);
   }
 }

@@ -7,11 +7,16 @@
 </div>
 <table class="table">
   <thead>
-    <tr routerLink="/cars"  class="table-dark">
-      <th>Colors</th>
+    <tr class="table-dark">
+      <th routerLink="cars/" (click)="resetCurrentColor()">Colors</th>
     </tr>
   </thead>
-  <tr *ngFor="let color of colors">
+  <tr
+    *ngFor="let color of colors"
+    (click)="setCurrentColor(color)"
+    routerLink="cars/color/{{ color.id }}"
+    [class]="getCurrentColorClass(color)"
+  >
     <td>{{ color.name }}</td>
   </tr>
 </table>

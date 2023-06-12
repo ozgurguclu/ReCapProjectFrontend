@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataResponseModel } from '../models/dataResponseModel';
+import { ListResponseModel } from '../models/listResponseModel';
 import { Brand } from '../models/brand';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class BrandService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getBrands():Observable<DataResponseModel<Brand>> {
-    return this.httpClient.get<DataResponseModel<Brand>>(this.apiUrl);
+  getBrands():Observable<ListResponseModel<Brand>> {
+    return this.httpClient.get<ListResponseModel<Brand>>(this.apiUrl);
   }
 }
